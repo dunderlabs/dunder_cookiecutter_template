@@ -54,7 +54,7 @@ def generate_secret_key(project_directory):
     chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
 
     env_file = env_file.replace('KEY_PLACE', get_random_string(50, chars))
-    env_file = env_file.replace('DEBUG_VALUE', True)
+    env_file = env_file.replace('DEBUG_VALUE', str(True))
 
     with open(env_path, 'w') as f:
         f.write(env_file)
