@@ -46,7 +46,7 @@ def get_random_string(length=12,
 
 def generate_secret_key(project_directory):
 
-    env_path = os.path.join(project_directory, '.env_example')
+    env_path = os.path.join(project_directory, '.env.example')
 
     with open(env_path) as f:
         env_file = f.read()
@@ -54,7 +54,7 @@ def generate_secret_key(project_directory):
     chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
 
     env_file = env_file.replace('KEY_PLACE', get_random_string(50, chars))
-    env_file = env_file.replace('DEBUG_VALUE', str(True))
+    env_file = env_file.replace('DEBUG_VALUE', 'True')
 
     with open(env_path, 'w') as f:
         f.write(env_file)
